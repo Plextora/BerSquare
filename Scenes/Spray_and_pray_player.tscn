@@ -1,0 +1,54 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Sounds/shoot.wav" type="AudioStream" id=1]
+[ext_resource path="res://Assets/Square.png" type="Texture" id=2]
+[ext_resource path="res://Scripts/Spray_and_pray_player.gd" type="Script" id=3]
+[ext_resource path="res://Music/lost found melody.mp3" type="AudioStream" id=4]
+[ext_resource path="res://Scripts/Mouse.gd" type="Script" id=5]
+[ext_resource path="res://Assets/gun.png" type="Texture" id=6]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 8.06573, 7.95985 )
+
+[node name="Player" type="Sprite"]
+modulate = Color( 0.886275, 0.721569, 0.27451, 1 )
+position = Vector2( 318.313, 163.134 )
+scale = Vector2( 1.5, 1.5 )
+texture = ExtResource( 2 )
+script = ExtResource( 3 )
+
+[node name="Mouse_Position" type="Node2D" parent="."]
+script = ExtResource( 5 )
+
+[node name="Gun" type="Sprite" parent="Mouse_Position"]
+position = Vector2( -5.944, 2.259 )
+rotation = 6.28319
+scale = Vector2( 0.075, 0.075 )
+texture = ExtResource( 6 )
+
+[node name="Shoot" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 1 )
+
+[node name="HitBox" type="Area2D" parent="." groups=[
+"Player",
+]]
+
+[node name="HitBox_Shape" type="CollisionShape2D" parent="HitBox"]
+visible = false
+shape = SubResource( 1 )
+
+[node name="Reload_Speed" type="Timer" parent="."]
+wait_time = 0.04
+one_shot = true
+
+[node name="woah_chill_mate" type="Timer" parent="."]
+one_shot = true
+
+[node name="Lost Found Melody" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 4 )
+volume_db = -5.0
+pitch_scale = 1.06
+
+[connection signal="area_entered" from="HitBox" to="." method="_on_HitBox_area_entered"]
+[connection signal="timeout" from="Reload_Speed" to="." method="_on_Reload_Speed_timeout"]
+[connection signal="timeout" from="woah_chill_mate" to="." method="_on_woah_chill_mate_timeout"]

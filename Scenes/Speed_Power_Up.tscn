@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Scenes/PowerUp.tscn" type="PackedScene" id=1]
+
+[node name="PowerUp" instance=ExtResource( 1 )]
+modulate = Color( 0.898039, 0.584314, 0.129412, 1 )
+scale = Vector2( 0.1, 0.1 )
+z_index = 25
+player_variable_modify = "speed"
+player_variable_set = 350.0
+cooldown = 1.0

@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Scenes/Enemy.tscn" type="PackedScene" id=1]
+
+[node name="Enemy" instance=ExtResource( 1 )]
+modulate = Color( 0.929412, 0.690196, 0.733333, 1 )
+speed = 75
+hp = 15
+ya_yeet = 625

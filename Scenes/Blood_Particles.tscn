@@ -1,0 +1,24 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Scripts/Blood_Particles.gd" type="Script" id=1]
+
+[node name="Blood_Particles" type="CPUParticles2D"]
+z_index = -5
+amount = 5
+lifetime = 0.2
+explosiveness = 1.0
+randomness = 0.39
+fixed_fps = 20
+spread = 18.9
+gravity = Vector2( 0, 0 )
+initial_velocity = 658.0
+initial_velocity_random = 1.0
+scale_amount = 5.0
+color = Color( 1, 0.00392157, 0.00392157, 0.839216 )
+script = ExtResource( 1 )
+
+[node name="Delet_blood" type="Timer" parent="."]
+wait_time = 0.15
+autostart = true
+
+[connection signal="timeout" from="Delet_blood" to="." method="_on_Delet_blood_timeout"]

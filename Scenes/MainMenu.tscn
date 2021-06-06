@@ -1,0 +1,73 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Assets/Squared Display.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://Assets/game_bg (640x360).png" type="Texture" id=2]
+[ext_resource path="res://Scripts/Play_Button.gd" type="Script" id=3]
+[ext_resource path="res://Scenes/Graphics.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scripts/Fullscreen_button.gd" type="Script" id=5]
+
+[sub_resource type="DynamicFont" id=1]
+size = 65
+outline_size = 2
+outline_color = Color( 0.192157, 0.870588, 0.239216, 1 )
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 100
+outline_size = 4
+outline_color = Color( 0.788235, 0.0980392, 0.0980392, 1 )
+font_data = ExtResource( 1 )
+
+[node name="MainMenu" type="Node2D"]
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 2 )
+centered = false
+
+[node name="Play_Button" type="Button" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 218.0
+margin_top = 149.401
+margin_right = 443.0
+margin_bottom = 221.401
+custom_fonts/font = SubResource( 1 )
+text = "play"
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Fullscreen_button" type="Button" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 177.0
+margin_top = 251.401
+margin_right = 493.0
+margin_bottom = 323.401
+custom_fonts/font = SubResource( 1 )
+text = "fullscreen"
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+margin_left = 109.613
+margin_top = -8.5992
+margin_right = 559.613
+margin_bottom = 91.4008
+custom_fonts/font = SubResource( 2 )
+text = "BerSquare"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Graphics" parent="." instance=ExtResource( 4 )]
+
+[connection signal="pressed" from="Play_Button" to="Play_Button" method="_on_Play_Button_pressed"]
+[connection signal="pressed" from="Fullscreen_button" to="Fullscreen_button" method="_on_Fullscreen_button_pressed"]

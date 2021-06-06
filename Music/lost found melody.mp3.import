@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/lost found melody.mp3-91508826d8cc6255bd59541e689ae722.mp3str"
+
+[deps]
+
+source_file="res://Music/lost found melody.mp3"
+dest_files=[ "res://.import/lost found melody.mp3-91508826d8cc6255bd59541e689ae722.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
