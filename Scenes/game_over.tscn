@@ -1,7 +1,7 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Assets/Squared Display.ttf" type="DynamicFontData" id=1]
-[ext_resource path="res://Assets/game_over.png" type="Texture" id=2]
+[ext_resource path="res://Scripts/Kills_game_over.gd" type="Script" id=2]
 [ext_resource path="res://Scripts/game_over.gd" type="Script" id=3]
 [ext_resource path="res://Scripts/score_game_over.gd" type="Script" id=4]
 [ext_resource path="res://Scenes/Graphics.tscn" type="PackedScene" id=5]
@@ -18,21 +18,45 @@ outline_size = 2
 outline_color = Color( 0.603922, 0.254902, 0.254902, 1 )
 font_data = ExtResource( 1 )
 
+[sub_resource type="DynamicFont" id=3]
+size = 100
+outline_size = 2
+outline_color = Color( 0.901961, 0.498039, 0.0156863, 1 )
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 100
+outline_size = 4
+outline_color = Color( 1, 0, 0, 1 )
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 30
+outline_size = 2
+outline_color = Color( 0.835294, 0.584314, 0.219608, 1 )
+font_data = ExtResource( 1 )
+
 [node name="game over" type="Node2D"]
 script = ExtResource( 3 )
 
-[node name="Sprite" type="Sprite" parent="."]
-position = Vector2( -30, 0 )
-texture = ExtResource( 2 )
-centered = false
-
 [node name="Button" type="Button" parent="."]
 margin_left = 228.544
-margin_top = 212.591
+margin_top = 135.591
 margin_right = 439.544
-margin_bottom = 269.591
+margin_bottom = 192.591
 custom_fonts/font = SubResource( 1 )
 text = "continue?"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="quit" type="Button" parent="."]
+margin_left = 228.544
+margin_top = 219.591
+margin_right = 439.544
+margin_bottom = 276.591
+custom_fonts/font = SubResource( 1 )
+text = "quit"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -59,7 +83,65 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Label3" type="Label" parent="."]
+margin_left = 82.0
+margin_top = 1.0
+margin_right = 302.0
+margin_bottom = 101.0
+custom_fonts/font = SubResource( 3 )
+text = "game"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label4" type="Label" parent="."]
+margin_left = 370.111
+margin_top = 1.18921
+margin_right = 570.111
+margin_bottom = 101.189
+custom_fonts/font = SubResource( 4 )
+text = "over"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label5" type="Label" parent="."]
+margin_left = 371.243
+margin_top = 314.495
+margin_right = 525.243
+margin_bottom = 345.495
+custom_fonts/font = SubResource( 5 )
+text = "you got"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label6" type="Label" parent="."]
+margin_left = 496.597
+margin_top = 315.063
+margin_right = 650.597
+margin_bottom = 346.063
+custom_fonts/font = SubResource( 5 )
+text = "0"
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label7" type="Label" parent="."]
+margin_left = 558.733
+margin_top = 316.441
+margin_right = 712.733
+margin_bottom = 347.441
+custom_fonts/font = SubResource( 5 )
+text = "kills"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Graphics" parent="." instance=ExtResource( 5 )]
 
 [connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]
+[connection signal="pressed" from="quit" to="." method="_on_quit_pressed"]
 [connection signal="tree_entered" from="Label2" to="Label2" method="_on_Label2_tree_entered"]
+[connection signal="tree_entered" from="Label6" to="Label6" method="_on_Label6_tree_entered"]

@@ -7,6 +7,14 @@ export(Array, PackedScene) var powerups
 func _ready():
 	Global.node_creation_parent = self
 	Global.score = 0
+	Global.kills = 0
+
+func _process(_delta):
+	if Input.is_action_pressed("MainMenu"):
+		get_tree().change_scene("res://Scenes/MainMenu.tscn")
+		
+		if get_tree().change_scene("res://Scenes/MainMenu.tscn") != OK:
+			print("An unexpected error occured when trying to switch to the MainMenu scene")
 
 func _exit_tree():
 	Global.node_creation_parent = null
@@ -22,7 +30,7 @@ func _on_Spawn_Timer_timeout():
 	Global.instance_node(enemies[enemy_number], enemy_position, self)
 
 func _on_Difficulty_timeout():
-	if $Spawn_Timer.wait_time > 0.55:
+	if $Spawn_Timer.wait_time > 0.85:
 		$Spawn_Timer.wait_time -= 0.037
 
 func _on_Power_Up_Spawn_Timer_timeout():
@@ -33,3 +41,9 @@ func _on_Power_Up_Spawn_Timer_timeout():
 
 func _on_Spray_and_pray_tree_entered():
 	Global.spray_and_pray_character = true
+
+func _on_World_tree_entered():
+	Global.normal_character = true
+
+func _on_Hell_tree_entered():
+	Global.hell_character = true

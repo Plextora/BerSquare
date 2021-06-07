@@ -20,4 +20,8 @@ func _on_Fullscreen_pressed():
 	OS.window_fullscreen = !OS.window_fullscreen
 
 func _on_Back_to_main_menu_pressed():
+# warning-ignore:return_value_discarded
 	get_tree().change_scene("res://Scenes/MainMenu.tscn")
+	
+	if get_tree().change_scene("res://Scenes/MainMenu.tscn") != OK:
+		print("An unexpected error occured when trying to switch to the MainMenu scene")

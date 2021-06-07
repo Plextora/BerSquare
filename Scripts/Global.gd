@@ -4,11 +4,23 @@ var node_creation_parent = null
 
 var player = null
 
+var graphics = true
+
+var hell_character = false
+
+var kills = 0
+
+var kills_game_over = 0
+
 var is_ded = false
 
 var spray_and_pray_character = false
 
+var normal_character = false
+
 var game_over_score = 0
+
+var game_over_text = false
 
 var camera = null
 

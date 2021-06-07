@@ -14,7 +14,6 @@ texture = ExtResource( 1 )
 script = ExtResource( 2 )
 
 [node name="Explosion" type="AudioStreamPlayer2D" parent="."]
-scale = Vector2( 1, 1 )
 stream = ExtResource( 3 )
 volume_db = 7.222
 

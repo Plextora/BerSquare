@@ -37,12 +37,16 @@ var blood_particles = preload("res://Scenes/Blood_Particles.tscn")
 func _process(_delta):
 	if hp <= 0:
 		AudioManager.play("res://Sounds/explosion.wav")
+		Global.kills += 1
 		if Global.camera != null:
 			Global.camera.screen_shake(shakey_jakey, 0.1)
-		Global.score += 10
+		if Global.hell_character == true:
+			Global.score += 57
+		Global.score += 12
 		if Global.node_creation_parent != null:
 			var blood_particles_instance = Global.instance_node(blood_particles, global_position, Global.node_creation_parent)
 			blood_particles_instance.rotation = velocity.angle()
+		Global.kills_game_over = Global.kills
 		queue_free()
 
 func basic_evilness_kek(delta):

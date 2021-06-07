@@ -9,6 +9,10 @@ var look_once = true
 func _process(delta):
 	if Global.spray_and_pray_character == true:
 		modulate = Color("e2b846")
+	if Global.normal_character == true:
+		modulate = Color("3b80ea")
+	if Global.hell_character == true:
+		modulate = Color("be2e52")
 	if look_once:
 		look_at(get_global_mouse_position())
 		look_once = false

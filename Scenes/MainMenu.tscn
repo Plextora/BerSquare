@@ -1,7 +1,6 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Assets/Squared Display.ttf" type="DynamicFontData" id=1]
-[ext_resource path="res://Assets/game_bg (640x360).png" type="Texture" id=2]
 [ext_resource path="res://Scripts/Play_Button.gd" type="Script" id=3]
 [ext_resource path="res://Scenes/Graphics.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scripts/Fullscreen_button.gd" type="Script" id=5]
@@ -19,10 +18,6 @@ outline_color = Color( 0.788235, 0.0980392, 0.0980392, 1 )
 font_data = ExtResource( 1 )
 
 [node name="MainMenu" type="Node2D"]
-
-[node name="Sprite" type="Sprite" parent="."]
-texture = ExtResource( 2 )
-centered = false
 
 [node name="Play_Button" type="Button" parent="."]
 anchor_left = 0.5

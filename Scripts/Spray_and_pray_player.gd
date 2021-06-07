@@ -7,7 +7,7 @@ extends Sprite
 # the "woah_chill_mate" timer is the powerup cooldown
 
 
-var speed = 210
+var speed = 250
 
 var default_speed = speed
 
@@ -64,7 +64,7 @@ func _on_HitBox_area_entered(area):
 		Global.spray_and_pray_character = false
 		is_ded = true
 		visible = false
-		yield(get_tree().create_timer(1.5), "timeout")
+		yield(get_tree().create_timer(2.5), "timeout")
 		Global.game_over_score = Global.score
 		get_tree().change_scene("res://Scenes/game_over.tscn")
 
