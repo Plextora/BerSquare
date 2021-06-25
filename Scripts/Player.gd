@@ -62,10 +62,13 @@ func _on_Reload_Speed_timeout():
 func _on_HitBox_area_entered(area):
 	if area.is_in_group("Enemy"):
 		Global.is_ded = true
+		Global.spray_and_pray_character = false
+		Global.hell_character = false
 		visible = false
 		yield(get_tree().create_timer(0.25), "timeout")
 		Global.game_over_text = true
 		Global.game_over_score = Global.score
+		Global.normal_character = true
 		get_tree().reload_current_scene()
 		if get_tree().reload_current_scene() != OK:
 			print("An unexpected error occured when trying to reload the current scene")
@@ -80,3 +83,6 @@ func _on_woah_chill_mate_timeout():
 	if power_up_reset.find("Power_up_speed") != null:
 		speed = default_speed
 		power_up_reset.erase("Power_up_speed")
+
+func _on_Player_tree_entered():
+	Global.is_ded = false

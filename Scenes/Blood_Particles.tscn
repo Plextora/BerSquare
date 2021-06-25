@@ -4,7 +4,7 @@
 
 [node name="Blood_Particles" type="CPUParticles2D"]
 z_index = -5
-amount = 5
+amount = 15
 lifetime = 0.2
 explosiveness = 1.0
 randomness = 0.39

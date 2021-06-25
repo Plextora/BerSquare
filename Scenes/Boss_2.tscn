@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Scenes/Boss_1.tscn" type="PackedScene" id=1]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 15.4308, 14.3513 )
+
+[node name="Boss_1" instance=ExtResource( 1 )]
+modulate = Color( 0.905882, 0.0823529, 0.862745, 1 )
+rotation = 2.35619
+scale = Vector2( 4.42291, 4.42291 )
+speed = 160
+hp = 13
+ya_yeet = 2222
+shakey_jakey = 35
+
+[node name="HitBox_Shape" parent="HitBox" index="0"]
+position = Vector2( -0.47962, 0.47962 )
+shape = SubResource( 1 )

@@ -1,14 +1,15 @@
 [gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Scripts/Bullet.gd" type="Script" id=1]
-[ext_resource path="res://Assets/Circle.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Square.png" type="Texture" id=2]
 
 [sub_resource type="CircleShape2D" id=1]
-radius = 91.1651
+radius = 16.1449
 
 [node name="Bullet" type="Sprite"]
 modulate = Color( 0.403922, 0.603922, 0.909804, 1 )
-scale = Vector2( 0.1, 0.1 )
+rotation = 2.35619
+scale = Vector2( 0.613217, 0.613217 )
 texture = ExtResource( 2 )
 script = ExtResource( 1 )
 

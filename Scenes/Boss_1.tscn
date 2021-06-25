@@ -1,10 +1,17 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Scenes/Enemy.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Assets/Square.png" type="Texture" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
 
 [node name="Boss_1" instance=ExtResource( 1 )]
-scale = Vector2( 4.79326, 4.79326 )
-speed = 35
-hp = 40
-ya_yeet = 1475
+scale = Vector2( 4.53149, 4.53149 )
+texture = ExtResource( 2 )
+speed = 45
+hp = 25
+ya_yeet = 1250
 shakey_jakey = 27
+
+[node name="HitBox_Shape" parent="HitBox" index="0"]
+shape = SubResource( 1 )

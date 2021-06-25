@@ -6,3 +6,6 @@
 [node name="Player" instance=ExtResource( 1 )]
 modulate = Color( 0.745098, 0.180392, 0.321569, 1 )
 script = ExtResource( 2 )
+
+[node name="HitBox_Shape" parent="HitBox" index="0"]
+visible = true

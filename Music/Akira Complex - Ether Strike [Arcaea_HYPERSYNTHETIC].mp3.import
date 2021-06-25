@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Akira Complex - Ether Strike [Arcaea_HYPERSYNTHETIC].mp3-ff1267b17a93dbe2f9235cff3f95d9d7.mp3str"
+
+[deps]
+
+source_file="res://Music/Akira Complex - Ether Strike [Arcaea_HYPERSYNTHETIC].mp3"
+dest_files=[ "res://.import/Akira Complex - Ether Strike [Arcaea_HYPERSYNTHETIC].mp3-ff1267b17a93dbe2f9235cff3f95d9d7.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

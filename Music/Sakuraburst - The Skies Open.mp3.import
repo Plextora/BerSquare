@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Sakuraburst - The Skies Open.mp3-63c8acd4cb4adf9ffcd6f9af78d683d3.mp3str"
+
+[deps]
+
+source_file="res://Music/Sakuraburst - The Skies Open.mp3"
+dest_files=[ "res://.import/Sakuraburst - The Skies Open.mp3-63c8acd4cb4adf9ffcd6f9af78d683d3.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

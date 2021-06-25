@@ -28,6 +28,8 @@ var highscore = 0
 
 var score = 0
 
+var time_elapsed := 0.0
+
 func instance_node(node, location, parent):
 	var node_instance = node.instance()
 	parent.add_child(node_instance)
