@@ -15,3 +15,5 @@ func _on_HitBox_area_entered(area):
 		area.get_parent().get_node("woah_chill_mate").start()
 		area.get_parent().power_up_reset.append("Power_up_reload")
 		queue_free()
+	if area.is_in_group("Enemy"):
+		queue_free()

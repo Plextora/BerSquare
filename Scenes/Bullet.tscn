@@ -9,7 +9,7 @@ radius = 16.1449
 [node name="Bullet" type="Sprite"]
 modulate = Color( 0.403922, 0.603922, 0.909804, 1 )
 rotation = 2.35619
-scale = Vector2( 0.613217, 0.613217 )
+scale = Vector2( 0.75, 0.75 )
 texture = ExtResource( 2 )
 script = ExtResource( 1 )
 
@@ -19,8 +19,10 @@ visible = false
 [node name="HitBox" type="Area2D" parent="." groups=[
 "ouch",
 ]]
+visible = false
 
 [node name="HitBox_Shape" type="CollisionShape2D" parent="HitBox"]
 shape = SubResource( 1 )
 
 [connection signal="screen_exited" from="Visibility_Check" to="." method="_on_Visibility_Check_screen_exited"]
+[connection signal="area_entered" from="HitBox" to="." method="_on_HitBox_area_entered"]

@@ -7,13 +7,13 @@
 [ext_resource path="res://Music/Akira Complex - Ether Strike [Arcaea_HYPERSYNTHETIC].mp3" type="AudioStream" id=5]
 [ext_resource path="res://Scripts/World.gd" type="Script" id=6]
 [ext_resource path="res://Scripts/Score.gd" type="Script" id=7]
-[ext_resource path="res://Scripts/Camera.gd" type="Script" id=8]
 [ext_resource path="res://Scripts/HighScore.gd" type="Script" id=9]
 [ext_resource path="res://Scenes/Enemy_Spray_and_pray.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Scenes/Graphics.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Scripts/Kills_Counter.gd" type="Script" id=12]
 [ext_resource path="res://Shaders/Aberration.shader" type="Shader" id=13]
 [ext_resource path="res://Shaders/Background.shader" type="Shader" id=14]
+[ext_resource path="res://Scenes/Wall.tscn" type="PackedScene" id=15]
 
 [sub_resource type="ShaderMaterial" id=1]
 shader = ExtResource( 13 )
@@ -189,15 +189,6 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Camera2D" type="Camera2D" parent="."]
-anchor_mode = 0
-current = true
-smoothing_enabled = true
-script = ExtResource( 8 )
-
-[node name="shake_time" type="Timer" parent="Camera2D"]
-one_shot = true
-
 [node name="Music" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 5 )
 volume_db = 2.5
@@ -205,8 +196,33 @@ autoplay = true
 
 [node name="Graphics" parent="." instance=ExtResource( 11 )]
 
+[node name="Walls" parent="." instance=ExtResource( 15 )]
+position = Vector2( 86.205, 25 )
+rotation = 1.5708
+
+[node name="Wall4" parent="Walls" instance=ExtResource( 15 )]
+position = Vector2( -4.57764e-05, -106.405 )
+scale = Vector2( 1, 1 )
+
+[node name="Wall7" parent="Walls" instance=ExtResource( 15 )]
+position = Vector2( 297.158, -123.612 )
+rotation = -1.5708
+scale = Vector2( 0.102684, 9.73866 )
+
+[node name="Wall8" parent="Walls" instance=ExtResource( 15 )]
+position = Vector2( 297.158, 12.8947 )
+rotation = -1.5708
+scale = Vector2( 0.102684, 9.73866 )
+
+[node name="Wall5" parent="Walls" instance=ExtResource( 15 )]
+position = Vector2( 623.362, -107.094 )
+scale = Vector2( 1, 1 )
+
+[node name="Wall6" parent="Walls" instance=ExtResource( 15 )]
+position = Vector2( 614.425, 0.276464 )
+scale = Vector2( 1, 1 )
+
 [connection signal="tree_entered" from="." to="." method="_on_Spray_and_pray_tree_entered"]
 [connection signal="timeout" from="Spawn_Timer" to="." method="_on_Spawn_Timer_timeout"]
 [connection signal="timeout" from="Difficulty" to="." method="_on_Difficulty_timeout"]
 [connection signal="timeout" from="Power_Up_Spawn_Timer" to="." method="_on_Power_Up_Spawn_Timer_timeout"]
-[connection signal="timeout" from="Camera2D/shake_time" to="Camera2D" method="_on_shake_time_timeout"]

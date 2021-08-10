@@ -75,6 +75,21 @@ func _on_HitBox_area_entered(area):
 		get_tree().change_scene("res://Scenes/game_over.tscn")
 		if get_tree().change_scene("res://Scenes/game_over.tscn") != OK:
 			print("An unexpected error occured when trying to switch to the game over scene")
+	if area.is_in_group("Wall"):
+		Global.is_ded = true
+		Global.spray_and_pray_character = false
+		Global.hell_character = false
+		visible = false
+		yield(get_tree().create_timer(0.25), "timeout")
+		Global.game_over_text = true
+		Global.game_over_score = Global.score
+		Global.normal_character = true
+		get_tree().reload_current_scene()
+		if get_tree().reload_current_scene() != OK:
+			print("An unexpected error occured when trying to reload the current scene")
+		get_tree().change_scene("res://Scenes/game_over.tscn")
+		if get_tree().change_scene("res://Scenes/game_over.tscn") != OK:
+			print("An unexpected error occured when trying to switch to the game over scene")
 
 func _on_woah_chill_mate_timeout():
 	if power_up_reset.find("Power_up_reload") != null:

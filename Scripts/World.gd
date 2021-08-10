@@ -15,6 +15,8 @@ func _process(_delta):
 		
 		if get_tree().change_scene("res://Scenes/MainMenu.tscn") != OK:
 			print("An unexpected error occured when trying to switch to the MainMenu scene")
+	if Input.is_action_just_pressed("CameraDestroy"):
+		$Camera2D.queue_free()
 
 func _exit_tree():
 	Global.node_creation_parent = null

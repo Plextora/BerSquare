@@ -66,6 +66,9 @@ func _on_HitBox_area_entered(area):
 		ow_god_why = true
 		$oof_ouch_that_hurts_alot_mate.start()
 		area.get_parent().queue_free()
+	if area.is_in_group("Wall") and ow_god_why == false:
+		velocity = -velocity * ya_yeet
+		hp -= 1
 
 func _on_oof_ouch_that_hurts_alot_mate_timeout():
 	modulate = current_color

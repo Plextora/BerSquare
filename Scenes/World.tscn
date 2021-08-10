@@ -1,9 +1,8 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://Scripts/World.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scripts/Score.gd" type="Script" id=3]
-[ext_resource path="res://Scripts/Camera.gd" type="Script" id=4]
 [ext_resource path="res://Assets/Squared Display.ttf" type="DynamicFontData" id=5]
 [ext_resource path="res://Scripts/HighScore.gd" type="Script" id=6]
 [ext_resource path="res://Scenes/Enemy_2.tscn" type="PackedScene" id=7]
@@ -16,51 +15,59 @@
 [ext_resource path="res://Shaders/Aberration.shader" type="Shader" id=14]
 [ext_resource path="res://Scenes/Graphics.tscn" type="PackedScene" id=15]
 [ext_resource path="res://Shaders/Background.shader" type="Shader" id=16]
+[ext_resource path="res://Scenes/Wall.tscn" type="PackedScene" id=17]
+[ext_resource path="res://Scripts/FPS_Display.gd" type="Script" id=18]
 
-[sub_resource type="ShaderMaterial" id=1]
+[sub_resource type="DynamicFont" id=1]
+size = 33
+outline_size = 1
+outline_color = Color( 0.627451, 0.866667, 0.266667, 1 )
+font_data = ExtResource( 5 )
+
+[sub_resource type="ShaderMaterial" id=2]
 shader = ExtResource( 14 )
 shader_param/_amount = 0.25
 shader_param/_centerFade = 0.211
 shader_param/_aberrationCenter = Vector2( 0.5, 0.5 )
 
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="DynamicFont" id=3]
 size = 121
 outline_size = 3
 outline_color = Color( 0.247059, 0.901961, 0.215686, 1 )
 use_filter = true
 font_data = ExtResource( 5 )
 
-[sub_resource type="DynamicFont" id=3]
+[sub_resource type="DynamicFont" id=4]
 size = 45
 outline_size = 1
 outline_color = Color( 0.247059, 0.901961, 0.215686, 1 )
 font_data = ExtResource( 5 )
 
-[sub_resource type="DynamicFont" id=4]
+[sub_resource type="DynamicFont" id=5]
 size = 60
 outline_size = 2
 outline_color = Color( 0.760784, 0.258824, 0.258824, 1 )
 font_data = ExtResource( 5 )
 
-[sub_resource type="DynamicFont" id=5]
+[sub_resource type="DynamicFont" id=6]
 size = 30
 outline_size = 2
 outline_color = Color( 0.760784, 0.258824, 0.258824, 1 )
 font_data = ExtResource( 5 )
 
-[sub_resource type="DynamicFont" id=6]
+[sub_resource type="DynamicFont" id=7]
 size = 25
 outline_size = 2
 outline_color = Color( 0.909804, 0.282353, 0.282353, 1 )
 font_data = ExtResource( 5 )
 
-[sub_resource type="DynamicFont" id=7]
+[sub_resource type="DynamicFont" id=8]
 size = 25
 outline_size = 2
 outline_color = Color( 0.854902, 0.0745098, 0.0745098, 1 )
 font_data = ExtResource( 5 )
 
-[sub_resource type="ShaderMaterial" id=8]
+[sub_resource type="ShaderMaterial" id=9]
 shader = ExtResource( 16 )
 shader_param/_rot = Transform2D( 0.5, -0.86, 0.86, 0.5, 0, 0 )
 shader_param/_speed = 0.5
@@ -99,8 +106,41 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="FPS" type="CanvasLayer" parent="UI/Control"]
+
+[node name="MarginContainer" type="MarginContainer" parent="UI/Control/FPS"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 7.0
+margin_top = -7.0
+margin_right = 7.0
+margin_bottom = -7.0
+custom_constants/margin_right = 10
+custom_constants/margin_top = 10
+custom_constants/margin_left = 10
+custom_constants/margin_bottom = 10
+script = ExtResource( 18 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/Control/FPS/MarginContainer"]
+margin_left = 10.0
+margin_top = 10.0
+margin_right = 630.0
+margin_bottom = 350.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/Control/FPS/MarginContainer/HBoxContainer"]
+margin_bottom = 340.0
+alignment = 2
+
+[node name="Stats" type="Label" parent="UI/Control/FPS/MarginContainer/HBoxContainer/VBoxContainer"]
+margin_top = 306.0
+margin_bottom = 340.0
+custom_fonts/font = SubResource( 1 )
+
 [node name="RGB Shift" type="ColorRect" parent="UI/Control"]
-material = SubResource( 1 )
+material = SubResource( 2 )
 margin_right = 640.0
 margin_bottom = 360.0
 __meta__ = {
@@ -112,7 +152,7 @@ margin_top = -5.0
 margin_right = 1280.0
 margin_bottom = 140.0
 rect_scale = Vector2( 0.5, 0.5 )
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 3 )
 text = "0"
 align = 1
 valign = 1
@@ -126,7 +166,7 @@ margin_left = 156.0
 margin_top = 10.0
 margin_right = 306.0
 margin_bottom = 70.0
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 4 )
 text = "score:"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -140,7 +180,7 @@ margin_top = -29.0
 margin_right = 1540.0
 margin_bottom = 31.0
 rect_scale = Vector2( 0.5, 0.5 )
-custom_fonts/font = SubResource( 4 )
+custom_fonts/font = SubResource( 5 )
 text = "0"
 align = 1
 valign = 1
@@ -154,18 +194,18 @@ margin_left = 421.732
 margin_top = 328.622
 margin_right = 550.732
 margin_bottom = 359.622
-custom_fonts/font = SubResource( 5 )
+custom_fonts/font = SubResource( 6 )
 text = "highscore:"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Kills2" type="Label" parent="UI/Control"]
-margin_left = 126.555
-margin_top = 331.0
-margin_right = 230.555
-margin_bottom = 357.0
-custom_fonts/font = SubResource( 6 )
+margin_left = 197.463
+margin_top = 331.841
+margin_right = 301.463
+margin_bottom = 357.841
+custom_fonts/font = SubResource( 7 )
 text = "0"
 script = ExtResource( 13 )
 __meta__ = {
@@ -173,33 +213,24 @@ __meta__ = {
 }
 
 [node name="Kills" type="Label" parent="UI/Control"]
-margin_left = 58.8473
-margin_top = 331.0
-margin_right = 162.847
-margin_bottom = 357.0
-custom_fonts/font = SubResource( 7 )
+margin_left = 129.755
+margin_top = 331.841
+margin_right = 233.755
+margin_bottom = 357.841
+custom_fonts/font = SubResource( 8 )
 text = "kills"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ColorRect_Background" type="ColorRect" parent="UI/Control"]
+[node name="BG" type="ColorRect" parent="UI/Control"]
 modulate = Color( 0, 1, 0.843137, 1 )
-material = SubResource( 8 )
+material = SubResource( 9 )
 margin_right = 640.0
 margin_bottom = 360.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
-
-[node name="Camera2D" type="Camera2D" parent="."]
-anchor_mode = 0
-current = true
-smoothing_enabled = true
-script = ExtResource( 4 )
-
-[node name="shake_time" type="Timer" parent="Camera2D"]
-one_shot = true
 
 [node name="Music" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 12 )
@@ -208,9 +239,34 @@ autoplay = true
 
 [node name="Graphics" parent="." instance=ExtResource( 15 )]
 
+[node name="Walls" parent="." instance=ExtResource( 17 )]
+position = Vector2( 86.205, 25 )
+rotation = 1.5708
+
+[node name="Wall4" parent="Walls" instance=ExtResource( 17 )]
+position = Vector2( -4.57764e-05, -106.405 )
+scale = Vector2( 1, 1 )
+
+[node name="Wall7" parent="Walls" instance=ExtResource( 17 )]
+position = Vector2( 297.158, -123.612 )
+rotation = -1.5708
+scale = Vector2( 0.102684, 9.73866 )
+
+[node name="Wall8" parent="Walls" instance=ExtResource( 17 )]
+position = Vector2( 297.158, 12.8947 )
+rotation = -1.5708
+scale = Vector2( 0.102684, 9.73866 )
+
+[node name="Wall5" parent="Walls" instance=ExtResource( 17 )]
+position = Vector2( 623.362, -107.094 )
+scale = Vector2( 1, 1 )
+
+[node name="Wall6" parent="Walls" instance=ExtResource( 17 )]
+position = Vector2( 614.425, 0.276464 )
+scale = Vector2( 1, 1 )
+
 [connection signal="tree_entered" from="." to="." method="_on_World_tree_entered"]
 [connection signal="tree_entered" from="Player" to="Player" method="_on_Player_tree_entered"]
 [connection signal="timeout" from="Spawn_Timer" to="." method="_on_Spawn_Timer_timeout"]
 [connection signal="timeout" from="Difficulty" to="." method="_on_Difficulty_timeout"]
 [connection signal="timeout" from="Power_Up_Spawn_Timer" to="." method="_on_Power_Up_Spawn_Timer_timeout"]
-[connection signal="timeout" from="Camera2D/shake_time" to="Camera2D" method="_on_shake_time_timeout"]

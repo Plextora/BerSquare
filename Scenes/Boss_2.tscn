@@ -3,7 +3,7 @@
 [ext_resource path="res://Scenes/Boss_1.tscn" type="PackedScene" id=1]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 15.4308, 14.3513 )
+extents = Vector2( 10.2404, 10.1531 )
 
 [node name="Boss_1" instance=ExtResource( 1 )]
 modulate = Color( 0.905882, 0.0823529, 0.862745, 1 )

@@ -18,6 +18,11 @@ func _process(delta):
 		look_once = false
 	global_position += velocity.rotated(rotation) * speed * delta
 
-
 func _on_Visibility_Check_screen_exited():
 	queue_free()
+
+func _on_HitBox_area_entered(area):
+	if area.is_in_group("Enemy"):
+		queue_free()
+	if area.is_in_group("Wall"):
+		queue_free()

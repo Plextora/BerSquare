@@ -38,7 +38,6 @@ anims/Appearance = SubResource( 1 )
 [node name="HitBox" type="Area2D" parent="."]
 
 [node name="HitBox_Shape" type="CollisionShape2D" parent="HitBox"]
-visible = false
 position = Vector2( 10.3654, 10.3654 )
 shape = SubResource( 2 )
 
